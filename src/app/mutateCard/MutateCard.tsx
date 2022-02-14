@@ -1,7 +1,7 @@
 import { Box, Button, Card } from '@mui/material';
 
+import { Input } from 'ui';
 import { styles } from './MutateCard.styles';
-import { Input } from '../../ui';
 
 export const MutateCard = () => {
   return (
@@ -9,7 +9,7 @@ export const MutateCard = () => {
       <Box sx={styles.container}>
         <Input label="First name" />
         <Input label="Last name" />
-        <Input label="Favourite spot" />
+        <Input label="Favorite spot" />
 
         <Button variant="contained" size="large" fullWidth>
           Submit
