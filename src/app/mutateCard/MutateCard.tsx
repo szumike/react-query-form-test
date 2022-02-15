@@ -1,20 +1,18 @@
-import { Box, Button, Card } from '@mui/material';
+import { Card } from '@mui/material';
 
-import { Input } from 'ui';
-import { styles } from './MutateCard.styles';
+import { useMutation } from 'api/hooks';
+import { FooBody } from 'api/types';
+import { createAddFooAction } from 'api/actions/foo/fooActions';
+import { Snackbar } from 'ui';
+import { MutateForm } from './mudateForm/MutateForm';
 
 export const MutateCard = () => {
+  const { isLoading, mutate, isSuccess } = useMutation<FooBody>(createAddFooAction);
+
   return (
     <Card>
-      <Box sx={styles.container}>
-        <Input label="First name" />
-        <Input label="Last name" />
-        <Input label="Favorite spot" />
-
-        <Button variant="contained" size="large" fullWidth>
-          Submit
-        </Button>
-      </Box>
+      <MutateForm isLoading={isLoading} onSubmit={mutate} />
+      <Snackbar text={isSuccess ? 'Foo created successfully' : undefined} />
     </Card>
   );
 };

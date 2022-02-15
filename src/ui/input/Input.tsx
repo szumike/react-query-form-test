@@ -1,5 +1,8 @@
-import { TextField, TextFieldProps } from '@mui/material';
+import React from 'react';
+import { TextField } from '@mui/material';
 
-export const Input = (props: TextFieldProps) => {
-  return <TextField {...props} variant="outlined" />;
-};
+import { InputProps } from './Input.types';
+
+export const Input = React.forwardRef<HTMLDivElement, InputProps>((props, ref) => {
+  return <TextField {...props} ref={ref} variant="outlined" />;
+});

@@ -18,11 +18,15 @@ app.use(
 
 app.get('/foo', async (req, res) => {
   await sleep(1000);
+
   res.send('Hi there');
 });
 
-app.post('/foo', (req, res) => {
+app.post('/foo', async (req, res) => {
+  await sleep(1000);
+
   console.log('POST /foo, body: ', req.body);
+
   res.status(200).send('OK');
 });
 
